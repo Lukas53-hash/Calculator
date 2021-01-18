@@ -29,7 +29,7 @@ h3 {
     align-content: center;
     min-height: 100vh;
     grid-template-columns: repeat(4, 100px);
-    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(6, 100px);
 }
 
 .claculator-grid > button {
@@ -68,4 +68,12 @@ h3 {
 .output .current-operand {
     color: white;
     font-size: 2.5rem;
+}
+
+#constant-inputs{
+    display: block;
+    position: absolute;
+    top: 130px;
+    left: 10px;
+    height: 500px;
 }
