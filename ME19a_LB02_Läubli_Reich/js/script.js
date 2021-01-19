@@ -89,6 +89,7 @@ class Calculator {
         }
     }
 
+
     loadStoredConstants() {
         this.storedConstants.load();
         let options = this.storedConstants.constants;
@@ -114,8 +115,7 @@ const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
 const loadConstantButton = document.querySelector('[data-load-constant]');
-const showConstantSaveButton = document.querySelector('[data-show-constants-save]');
-const saveConstantButton = document.getElementById('save-constant-button');
+const saveConstantButton = document.querySelector('[data-save-constant]');
 const deleteConstantButton = document.querySelector('[data-delete-constant]');
 const allClearButton = document.querySelector('[data-all-clear]');
 const previousOperandtextElement = document.querySelector('[data-previous-operand]');
@@ -158,36 +158,36 @@ deleteButton.addEventListener('click', button => {
  */
 loadConstantButton.addEventListener('click', button => {
 
-})
-    
-
-/**
- * Show / hide the button and text field to save a new constant
- */
-showConstantSaveButton.addEventListener('click', button => {
-
-    // show two text boxes, one for the name and another one for the value
-    // and a save button
-    // clicking the save button reads the name and the value, adds them to
-    // the constants list like
-    
-
-    // hide the text boxes and the button again.
+    let select = document.getElementById("select-constant");
+    let name = select.options[select.selectedIndex].text;
+    let val = calculator.storedConstants.value(name);
+    calculator.currentOperand = val;
+    calculator.updateDisplay()
 
 })
 
 saveConstantButton.addEventListener('click', button => {
 
-    // get name and value from textboxes
-    let name = document.querySelector('#constant-name').value;
-    let value = document.querySelector('#constant-value').value;
+    // get the value from the calculator
+    let value = calculator.currentOperand;
+    if(value == ''){
+        alert('Sie müssen einen Wert für die Variable in den Rechner eingeben');
+        return;
+    }
 
+    // get the name of the constant
+    let name = prompt('Geben Sie den Namen der Konstanten ein', '');
+    if(name == null || name == '' ){
+        return;
+    }   
+
+    // add the constant to the stored constants
     calculator.storedConstants.add(name, value);
 
-    // save the changed list like
+    // save the changed list locally
     calculator.storedConstants.save();
 
-    // reload the select box
+    // recreate the select box
     calculator.loadStoredConstants();
     
     // tell about the success

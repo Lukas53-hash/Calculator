@@ -13,10 +13,14 @@
 </head>
 <body>
 <h1>Calculator</h1>
-<div class="claculator-grid">
+<div class="calculator-grid">
   <div class="output">
     <div data-previous-operand class="previous-operand"></div>
     <div data-current-operand class="current-operand"></div>
+  </div>
+  <div class='input span-four'>
+    <div>Konstanten</div>
+    <div><select id='select-constant' style='width: 250px'></select></div>
   </div>
   <button data-all-clear class="span-two">AC</button>
   <button data-delete>DEL</button>
@@ -36,19 +40,9 @@
   <button data-number>0</button>
   <button data-number>.</button>
   <button data-equals class="span-two">=</button>
-  <button data-load-constant title='Konstante laden'>LC</button>
-  <button data-show-constants-save title='Konstante speichern'>SC</button>
-  <button data-delete-constant class="span-two" title='Konstante löschen'>DEL C</button>
-</div>
-
-<div id='constant-inputs'>
-    <label>Name</label>
-    <input id='constant-name' type='text' style='width: 150px' /><br />
-    <label>Wert</label>
-    <input id='constant-value' type='text' style='width: 150px' />
-    <input id='save-constant-button' type='button' style='width: 150px' value='Konstante Speichern' />
-
-    <select id='select-constant' style='width: 250px'></select>
+  <button data-load-constant title='Konstante laden' class="span-two">LC</button>
+  <button data-save-constant title='Konstante speichern'>SC</button>
+  <button data-delete-constant title='Konstante löschen'>DC</button>
 </div>
 
 </body>

@@ -23,16 +23,17 @@ h3 {
     font-size: 15px;
 }
 
-.claculator-grid {
+.calculator-grid {
     display: grid;
     justify-content: center;
     align-content: center;
     min-height: 100vh;
     grid-template-columns: repeat(4, 100px);
-    grid-template-rows: minmax(120px, auto) repeat(6, 100px);
+    grid-template-rows: minmax(120px, auto) 40px repeat(6, 100px);
+    /*grid-template-rows: minmax(120px, auto) repeat(7, 100px);*/
 }
 
-.claculator-grid > button {
+.calculator-grid > button {
     cursor: pointer;
     font-size: 2rem;
     border: 1px solid white;
@@ -40,12 +41,16 @@ h3 {
     background-color: rgba(255,255,255, 75%);
 }
 
-.claculator-grid > button:hover {
+.calculator-grid > button:hover {
     background-color: rgba(255, 255, 255, 90%);
 }
 
 .span-two {
     grid-column: span 2;
+}
+
+.span-four {
+    grid-column: span 4;
 }
 
 .output {
@@ -68,6 +73,24 @@ h3 {
 .output .current-operand {
     color: white;
     font-size: 2.5rem;
+}
+
+.input {
+    /*background-color: rgba(0, 0, 0, 75%);*/
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: #0859aa;
+    color: white;
+}
+
+.input select{
+    height: 40px;
+    width: 480px;
+    font-size: 15px;
+    margin-right: -24px;
 }
 
 #constant-inputs{
